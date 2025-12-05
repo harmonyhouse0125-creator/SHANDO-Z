@@ -1,31 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shando'z Cafe</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <!-- Musik -->
-    <audio id="bgm" autoplay loop muted>
-    <source src="musik.mp3" type="audio/mp3">
-</audio>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const bgm = document.getElementById("bgm");
-    
-    // Mulai muted untuk lolos aturan browser
-    bgm.play().then(() => {
-        // Setelah berhasil play, baru unmute
-        setTimeout(() => {
-            bgm.muted = false;
-            bgm.volume = 0.4;
-        }, 500);
-    }).catch(e => {
-        console.log("Autoplay ketahan:", e);
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("bgm");
+
+    // coba autoplay
+    audio.volume = 0.4;
+    audio.play().catch(() => {
+        // kalo autoplay gagal, aktifin dengan sentuhan pertama user
+        document.body.addEventListener("touchstart", function() {
+            audio.play();
+        }, { once: true });
+
+        document.body.addEventListener("click", function() {
+            audio.play();
+        }, { once: true });
     });
 });
 </script>
