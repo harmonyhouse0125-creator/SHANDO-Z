@@ -9,24 +9,23 @@
 <body>
 
     <!-- Musik -->
-    <audio id="bgm" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bgm" autoplay loop muted>
+    <source src="musik.mp3" type="audio/mp3">
+</audio>
 
-    <script>
-        // Biar musik mulai setelah user klik
-        document.addEventListener("click", function() {
-            let audio = document.getElementById("bgm");
-            audio.volume = 0.4;
-            audio.play().catch(() => {});
-        }, { once: true });
-    </script>
-
-    <div class="hero">
-        <h1>Shando'z Cafe & Coffee Bar</h1>
-        <p>Hitam Coklat. Musik Nyantai. Kopi Mantap.</p>
-        <a href="menu.html" class="btn">Lihat Menu</a>
-    </div>
-
-</body>
-</html>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const bgm = document.getElementById("bgm");
+    
+    // Mulai muted untuk lolos aturan browser
+    bgm.play().then(() => {
+        // Setelah berhasil play, baru unmute
+        setTimeout(() => {
+            bgm.muted = false;
+            bgm.volume = 0.4;
+        }, 500);
+    }).catch(e => {
+        console.log("Autoplay ketahan:", e);
+    });
+});
+</script>
