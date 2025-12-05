@@ -1,57 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shandoz Cafe</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #faf7f2;
-            color: #333;
-            text-align: center;
-            padding: 40px;
-        }
-        header {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .tagline {
-            color: #777;
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
-        .menu {
-            max-width: 400px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .menu h2 {
-            margin-top: 0;
-        }
-        .item {
-            margin: 10px 0;
-            padding: 10px;
-            background: #f3ede4;
-            border-radius: 8px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shando'z Cafe</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>Shandoz Cafe</header>
-    <div class="tagline">Cozy. Simple. Good Vibes.</div>
 
-    <div class="menu">
-        <h2>Menu Favorite</h2>
-        <div class="item">☕ Coffee Latte</div>
-        <div class="item">🍵 Matcha Ice</div>
-        <div class="item">🥐 Croissant Butter</div>
-        <div class="item">🍰 Cheesecake Slice</div>
+    <!-- Musik -->
+    <audio id="bgm" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Biar musik mulai setelah user klik
+        document.addEventListener("click", function() {
+            let audio = document.getElementById("bgm");
+            audio.volume = 0.4;
+            audio.play().catch(() => {});
+        }, { once: true });
+    </script>
+
+    <div class="hero">
+        <h1>Shando'z Cafe & Coffee Bar</h1>
+        <p>Hitam Coklat. Musik Nyantai. Kopi Mantap.</p>
+        <a href="menu.html" class="btn">Lihat Menu</a>
     </div>
+
 </body>
 </html>
