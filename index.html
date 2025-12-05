@@ -1,18 +1,32 @@
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const audio = document.getElementById("bgm");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shando'z Cafe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    // coba autoplay
-    audio.volume = 0.4;
-    audio.play().catch(() => {
-        // kalo autoplay gagal, aktifin dengan sentuhan pertama user
-        document.body.addEventListener("touchstart", function() {
-            audio.play();
-        }, { once: true });
+    <!-- Musik -->
+    <audio id="bgm" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-        document.body.addEventListener("click", function() {
-            audio.play();
+    <script>
+        // Biar musik mulai setelah user klik
+        document.addEventListener("click", function() {
+            let audio = document.getElementById("bgm");
+            audio.volume = 0.4;
+            audio.play().catch(() => {});
         }, { once: true });
-    });
-});
-</script>
+    </script>
+
+    <div class="hero">
+        <h1>Shando'z Cafe & Coffee Bar</h1>
+        <p>Hitam Coklat. Musik Nyantai. Kopi Mantap.</p>
+        <a href="menu.html" class="btn">Lihat Menu</a>
+    </div>
+
+</body>
+</html>
